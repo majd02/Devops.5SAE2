@@ -2,7 +2,9 @@ package tn.esprit.rh.achat;
 
 
 import org.junit.Test;
-
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -33,11 +35,11 @@ public class ProduitServiceMockTest {
 
     @Mock
     StockRepository sr;
-    @InjectMocks
-    StockServiceImpl ss;
-
     @Mock
     ProduitRepository produitRepository;
+
+    @InjectMocks
+    StockServiceImpl ss;
 
    @InjectMocks
    ProduitServiceImpl produitService;

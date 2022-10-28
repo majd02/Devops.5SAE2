@@ -17,9 +17,11 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,10 +31,8 @@ import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 import tn.esprit.rh.achat.services.CategorieProduitServiceImpl;
 
 
-
 @SpringBootTest
-@TestMethodOrder(OrderAnnotation.class)
-@ExtendWith(MockitoExtension.class)
+@RunWith(MockitoJUnitRunner.class)
 
 public class categorieproduitTest {
 
