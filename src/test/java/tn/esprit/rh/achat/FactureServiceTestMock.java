@@ -42,6 +42,8 @@ public class FactureServiceTestMock {
 		Facture Factureadd = ss.addFacture(facture);
 
 		assertThat(Factureadd.getIdFacture()).isSameAs(Factureadd.getIdFacture());
+		
+		System.out.println("add f done");
 	}
 
 	@Test
