@@ -19,6 +19,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static tn.esprit.rh.achat.entities.CategorieFournisseur.CONVENTIONNE;
+
 @Entity
 @Getter
 @Setter
@@ -43,7 +45,13 @@ public class Fournisseur implements Serializable {
     private Set<SecteurActivite> secteurActivites;
     @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
     private DetailFournisseur detailFournisseur;
-    
 
-	
+
+	public Fournisseur(long l, String code_safa, String libelle_hlk, CategorieFournisseur ordinaire) {
+		this.idFournisseur = idFournisseur;
+		this.code = code;
+		this.libelle = libelle;
+		this.categorieFournisseur = ordinaire;
+		this.categorieFournisseur = CONVENTIONNE;
+	}
 }
