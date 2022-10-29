@@ -58,7 +58,7 @@ public class ProduitSericeTestMock {
 	        List<Produit> listproduit3 = produitService.retrieveAllProduits();
 	        assertEquals(3, listproduit3.size());
 	        //assertEquals(produit1.getIdProduit(),55L);
-	        System.out.println("1-show products done");
+	        System.out.println("2555");
 	    }
 	@Test
 	public void testAddFacture() { 
@@ -67,13 +67,13 @@ public class ProduitSericeTestMock {
 	        Produit produit1 = produitService.addProduit(p1);
 	        //assertNotNull(produit1);
 	        Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
-	        System.out.println("2-add produit done ");
+	        System.out.println("3");
 	}
     @Test
     public void testdeleteProduit(){
         produitService.deleteProduit(66L);
         Mockito.verify(produitRepository, times(1)).deleteById(66L);
-        System.out.println("3-delete product done");
+        System.out.println("4");
     }
 ///sss
     @Test
@@ -81,7 +81,7 @@ public class ProduitSericeTestMock {
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
         Produit produit1 = produitService.updateProduit(p1);
         Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
-        System.out.println("4-add produit done");
+        System.out.println("5");
     }
 
     @Test
@@ -100,7 +100,7 @@ public class ProduitSericeTestMock {
        // Mockito.verify(sr, times(1)).save(Mockito.any(Stock.class));
         Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
 
-        System.out.println("5-assign product done");    }
+        System.out.println("6");    }
 }
 
 
