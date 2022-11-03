@@ -1,6 +1,5 @@
 version: "3.3"
 
-#Define services
 services:
 
   mysql-db:
@@ -18,7 +17,7 @@ services:
   
   springboot-app:
   
-    image: magnum3016/springbootachat:latest
+    image: majdidani/devopsrepository:65
     container_name: springboot-app
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
