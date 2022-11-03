@@ -23,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Facture implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private static long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,9 @@ public class Facture implements Serializable {
     @OneToMany(mappedBy="facture")
     @JsonIgnore
     private Set<Reglement> reglements;
+	public static void setSerialversionuid(long serialversionuid) {
+		serialVersionUID = serialversionuid;
+	}
 
 	
 }
