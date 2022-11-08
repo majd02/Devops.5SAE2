@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="achat" />
+        <module name="Devops.5SAE2" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Devops.5SAE2" options="-parameters" />
       <module name="achat" options="-parameters" />
     </option>
   </component>
