@@ -1,0 +1,117 @@
+ 
+            
+pipeline {
+     environment { 
+
+        registry = "majdidani/devopsrepository" 
+
+        registryCredential = 'dockerhub-id' 
+
+        dockerImage = '' 
+
+    }
+    agent any 
+    
+    stages {
+        stage('GIT') {
+          
+         steps {
+                echo 'cloning project from GIT'
+                git branch : "majd-idani" , 
+                url :'https://github.com/majd02/Devops.5SAE2.git'
+            }
+        }
+        stage('MVN CLEAN') {
+            steps {
+               sh 'mvn clean'
+            }
+        }
+       
+        stage('MVN COMPILE') {
+            steps {
+               sh 'mvn compile'
+            
+           }
+        }
+        
+          
+          stage('Scan') {
+               steps {
+    sh "    mvn sonar:sonar \
+  -Dsonar.projectKey=sonarqubetest \
+  -Dsonar.host.url=http://192.168.1.16:9000 \
+  -Dsonar.login=31fb490bcbfbdf364fd6aa5cf419fc54ad20df7b"
+  echo "sonar succefully"
+
+                      }
+                        }
+                         stage('JUNIT/MOCKITO') {
+            steps {
+               sh 'mvn test -Dtest="tn.esprit.rh.achat.ProduitSericeTestMock.java" '
+               
+                 sh 'mvn test -Dtest="tn.esprit.rh.achat.FactureServiceTestMock.java" '
+                 
+            
+           }
+        }
+                           stage('NEXUS') {
+            steps {
+                sh "mvn deploy -DskipTests";
+            }
+        }
+         stage('Building our image') { 
+
+            steps { 
+
+                script { 
+
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+
+                }
+
+            } 
+
+        }
+
+        stage('Deploy our image') { 
+
+            steps { 
+
+                script { 
+
+                    docker.withRegistry( '', registryCredential ) { 
+
+                        dockerImage.push() 
+
+                    }
+                } 
+
+            }
+
+        } 
+
+        stage('Cleaning up') { 
+
+            steps { 
+
+                sh "docker rmi $registry:$BUILD_NUMBER" 
+
+            }
+
+        }
+         stage('docker composer') { 
+
+            steps { 
+
+                sh "docker-compose up -d" 
+
+            }
+
+        }
+                        
+}
+        
+    
+    
+}
+
