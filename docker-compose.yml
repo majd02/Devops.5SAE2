@@ -33,3 +33,9 @@ services:
       - 8089:8089 
     links:
       - mysql-db
+       angular-app:
+    image: magnum3016/anglarachat:latest
+    ports:
+      - 4200:4200 
+    links:
+      - springboot-app
