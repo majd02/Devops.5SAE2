@@ -54,20 +54,20 @@ pipeline {
         stage('Docker build')
         {
             steps {
-                 sh 'docker build -t h123abidi/achat  .'
+                 sh 'docker build -t yassine156/achat  .'
             }
         }
         stage('Docker login')
         {
             steps {
-                sh 'echo $dockerhub_PSW | docker login -u h123abidi -p dckr_pat_JNwXVh3lgf36cdiVz3RnBgU6aQ4'
+                sh 'echo $dockerhub_PSW | docker login -u yassine156 -p dckr_pat_p05zqRCfAceqVfHPayXUJuMqFys'
             }    
        
         }
       stage('Push') {
 
 			steps {
-				sh 'docker push h123abidi/achat'
+				sh 'docker push yassine156/achat'
 			}
 		}
 		stage('NEXUS') {
