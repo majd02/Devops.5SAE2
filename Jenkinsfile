@@ -71,7 +71,7 @@ pipeline {
 
                 script { 
 
-                    dockerImage = docker.build("alaaben/devops_project:lastest") 
+                    dockerImage = docker.build("yassin3/devops_project:lastest") 
 
                 }
 
