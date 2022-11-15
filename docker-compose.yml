@@ -37,7 +37,7 @@ services:
   angular-app:
        
     image: majdidani/angularimage:latest
-    container_name: angularimage:latest
+    container_name: angularimage
     ports:
       - 4200:80
     links:
