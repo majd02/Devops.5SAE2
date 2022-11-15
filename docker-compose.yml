@@ -37,7 +37,8 @@ services:
   angular-app:
        
     image: majdidani/angularimage:latest
+    container_name: angularimage:latest
     ports:
-      - 4200:4200 
+      - 4200:80
     links:
       - springboot-app
