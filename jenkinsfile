@@ -37,6 +37,7 @@ pipeline {
         
                          stage('JUNIT/MOCKITO') {
             steps {
+               sh 'mvn test -Dtest="tn.esprit.rh.achat.ProduitServiceJunitTest.java" '
                sh 'mvn test -Dtest="tn.esprit.rh.achat.ProduitSericeTestMock.java" '
                
                  sh 'mvn test -Dtest="tn.esprit.rh.achat.FactureServiceTestMock.java" '
