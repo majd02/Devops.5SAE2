@@ -35,6 +35,15 @@ pipeline {
            }
         }
         
+                         stage('JUNIT/MOCKITO') {
+            steps {
+               sh 'mvn test -Dtest="tn.esprit.rh.achat.ProduitSericeTestMock.java" '
+               
+                 sh 'mvn test -Dtest="tn.esprit.rh.achat.FactureServiceTestMock.java" '
+                 
+            
+           }
+        }
           
           stage('Scan') {
                steps {
@@ -46,15 +55,6 @@ pipeline {
 
                       }
                         }
-                         stage('JUNIT/MOCKITO') {
-            steps {
-               sh 'mvn test -Dtest="tn.esprit.rh.achat.ProduitSericeTestMock.java" '
-               
-                 sh 'mvn test -Dtest="tn.esprit.rh.achat.FactureServiceTestMock.java" '
-                 
-            
-           }
-        }
                            stage('NEXUS') {
             steps {
                 sh "mvn deploy -DskipTests";
