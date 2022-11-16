@@ -50,7 +50,12 @@ pipeline {
                 }
             }
         }
-        
+        stage('NEXUS') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+                  
+            }
+        }
         stage('Docker build')
         {
             steps {
@@ -70,12 +75,7 @@ pipeline {
 				sh 'docker push yassine156/achat'
 			}
 		}
-		stage('NEXUS') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-                  
-            }
-        }
+		
         
        stage('Run app With DockerCompose') {
               steps {
