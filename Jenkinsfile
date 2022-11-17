@@ -83,7 +83,14 @@ pipeline {
               }
               }
         
-       
+           
+       stage('Sending email'){
+           steps {
+            mail bcc: '', body: '''Hello from mohamedazizmaamar,
+            Devops Pipeline with success.
+            Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops', to: 'mohamedaziz.maamar@esprit.tn'
+            }
+       }   
        
     }
 }
