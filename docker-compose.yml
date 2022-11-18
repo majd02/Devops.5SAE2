@@ -17,7 +17,7 @@ services:
   
   springboot-app:
   
-    image: seifderbali/repodock:39
+    image: seifderbali/repodock:latest
     container_name: springboot-app
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
