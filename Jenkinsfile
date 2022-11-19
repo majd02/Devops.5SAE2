@@ -28,6 +28,13 @@ pipeline {
                 sh 'mvn -version'
             }
         }
+
+        stage("Running Tests")
+        {
+            steps{
+                sh 'mvn test'
+            }
+        }
        
         stage('Clean') {
             steps{
@@ -48,18 +55,30 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-        stage("Running Tests")
-        {
-            steps{
-                sh 'mvn test'
-            }
-        }
+        
        
         
         stage("Nexus")
         {
             steps{
-                sh 'mvn deploy -DskipTests'
+                script {
+                    nexusArtifactUploader artifacts:
+                    [
+                        [
+                            artifactId: 'achat',
+                            classifier: '',
+                            file: 'achat.jar',
+                            type: 'jar'
+                        ]
+                    ],
+                    credentialsId: "deploymentRepo2",
+                    groupId: tn.esprit.rh, 
+                    nexusUrl: 192.168.224.187:8081",
+                    nexusVersion: 'nexus3",
+                    protocol: 'http',
+                    repository: 'maven-releases',
+                    version: '1.0.0'
+                }
             }
         }
         
