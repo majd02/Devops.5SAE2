@@ -50,11 +50,7 @@ pipeline {
        
        
        
-      stage(" SonarQube") {
-            steps{
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-            }
-        }
+      
         
        
         
@@ -67,7 +63,7 @@ pipeline {
                         [
                             artifactId: 'achat',
                             classifier: '',
-                            file: 'achat.jar',
+                            file: 'tn.esprit.rh:achat:jar',
                             type: 'jar'
                         ]
                     ],
