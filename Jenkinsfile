@@ -56,7 +56,12 @@ pipeline {
         }
        
         
-        
+        stage("Nexus")
+        {
+            steps{
+                sh 'mvn deploy -DskipTests'
+            }
+        }
         
    
         
@@ -74,7 +79,7 @@ pipeline {
 
         }
         
-        stage('Deploy our image') { 
+        stage('Deploying our image') { 
 
             steps { 
 
