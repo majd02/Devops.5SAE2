@@ -29,13 +29,13 @@ pipeline {
             }
         }
        
-        stage('mvn clean') {
+        stage('Clean') {
             steps{
                 sh """mvn clean"""
             }
         }
        
-        stage('mvn compile') {
+        stage('Compile') {
             steps{
                 sh """mvn compiler:compile"""
             }
