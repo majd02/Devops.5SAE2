@@ -43,7 +43,11 @@ pipeline {
        
        
        
-      
+      stage(" SonarQube") {
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
         stage("Running Tests")
         {
             steps{
@@ -52,7 +56,12 @@ pipeline {
         }
        
         
-
+        stage("Nexus")
+        {
+            steps{
+                sh 'mvn deploy -DskipTests'
+            }
+        }
         
    
         
@@ -62,7 +71,7 @@ pipeline {
 
                 script { 
 
-                    dockerImage = docker.build("yassin3/devops_project:lastest") 
+                    dockerImage = docker.build registry + ":latest"
 
                 }
 
