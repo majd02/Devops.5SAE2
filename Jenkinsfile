@@ -71,10 +71,10 @@ pipeline {
                             type: 'jar'
                         ]
                     ],
-                    credentialsId: "deploymentRepo2",
-                    groupId: tn.esprit.rh, 
-                    nexusUrl: 192.168.224.187:8081",
-                    nexusVersion: 'nexus3",
+                    credentialsId: 'deploymentRepo2',
+                    groupId: 'tn.esprit.rh', 
+                    nexusUrl: '192.168.224.187:8081',
+                    nexusVersion: 'nexus3',
                     protocol: 'http',
                     repository: 'maven-releases',
                     version: '1.0.0'
