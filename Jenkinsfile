@@ -63,7 +63,7 @@ pipeline {
                         [
                             artifactId: 'achat',
                             classifier: '',
-                            file: 'tn.esprit.rh:achat:jar',
+                            file: 'target/achat-1.0.jar',
                             type: 'jar'
                         ]
                     ],
