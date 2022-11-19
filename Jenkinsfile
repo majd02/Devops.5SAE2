@@ -57,24 +57,7 @@ pipeline {
         stage("Nexus")
         {
             steps{
-                script {
-                    nexusArtifactUploader artifacts:
-                    [
-                        [
-                            artifactId: 'achat',
-                            classifier: '',
-                            file: 'target/achat-1.0.jar',
-                            type: 'jar'
-                        ]
-                    ],
-                    credentialsId: 'deploymentRepo2',
-                    groupId: 'tn.esprit.rh', 
-                    nexusUrl: '192.168.224.187:8081',
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    repository: 'maven-releases',
-                    version: '1.0.0'
-                }
+                sh "mvn deploy -DskipTests";
             }
         }
         
