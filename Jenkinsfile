@@ -23,7 +23,7 @@ pipeline {
 
         }
        
-        stage('Testing maven') {
+      /*  stage('Testing maven') {
             steps{
                 sh 'mvn -version'
             }
@@ -49,11 +49,11 @@ pipeline {
         }
        
        
-      //stage(" SonarQube") {
-        //    steps{
-          //      sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-            //}
-        //}       
+      stage(" SonarQube") {
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }       
       
         
        
@@ -63,7 +63,7 @@ pipeline {
             steps{
                sh "mvn deploy";
             }
-        }
+        }*/
         
    
         
